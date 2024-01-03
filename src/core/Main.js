@@ -13,6 +13,8 @@ import TableComponent from "../components/TableComponent";
 import Header from "../components/Header";
 import FreeFormBox from "../components/FreeFormBox";
 import BankDetails from "../components/BankDetails";
+import ItemBill from "../components/ItemBill";
+import TaxBox from "../components/TaxBox";
 
 function Main() {
   const lightTheme = createTheme(theme);
@@ -47,21 +49,25 @@ function Main() {
 
   return (
     <ThemeProvider theme={lightTheme}>
-      <Box>
-        <Box
-          className="pdf-page"
-          sx={{
-            width: "595px",
-            height: "842px",
-            margin: "0 auto",
-            backgroundColor: "lightblue",
-            padding: 2,
-          }}
-        >
-          <Header />
-          <FreeFormBox />
-          <BankDetails />
-        </Box>
+      <Box
+        className="pdf-page"
+        sx={{
+          width: "595px",
+          height: "842px",
+          margin: "0 auto",
+          // backgroundColor: "lightblue",
+          padding: 0,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          alignItems: "center", // Center content vertically
+        }}
+      >
+        <Header />
+        <FreeFormBox />
+        <ItemBill />
+        <TaxBox />
+        <BankDetails />
       </Box>
 
       <Box
@@ -70,8 +76,12 @@ function Main() {
           width: "595px",
           height: "842px",
           margin: "0 auto",
-          backgroundColor: "green",
-          padding: 2,
+          // backgroundColor: "pink",
+          padding: 0,
+          display: "flex",
+          flexDirection: "column",
+          // justifyContent: "",
+          alignItems: "center", // Center content vertically
         }}
       >
         <Typography variant="h6">Page 2</Typography>

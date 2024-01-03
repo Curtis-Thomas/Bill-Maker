@@ -30,7 +30,10 @@ const TableComponent = () => {
   };
 
   return (
-    <Box backgroundColor={"purple"}>
+    <Box
+      // backgroundColor={"purple"}
+      sx={{ width: "100%" }}
+    >
       <TableContainer>
         <Table>
           <TableHead>
