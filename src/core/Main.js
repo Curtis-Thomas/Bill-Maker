@@ -1,7 +1,7 @@
+import React, { useEffect } from "react";
 import {
   Box,
   Button,
-  Input,
   Typography,
   createTheme,
   ThemeProvider,
@@ -10,87 +10,76 @@ import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import theme from "../theme";
 import TableComponent from "../components/TableComponent";
-
-function generatePDF() {
-  const input = document.getElementById("bill-container");
-
-  // Set the width and height to A4 size in millimeters (approx)
-  const pdfWidth = 210;
-
-  html2canvas(input, { scale: 2 }).then((canvas) => {
-    // Create a new jsPDF instance with the specified dimensions
-    const pdf = new jsPDF("p", "mm", "a4");
-
-    // Calculate the aspect ratio to maintain the content's original size
-    const aspectRatio = canvas.width / canvas.height;
-
-    // Calculate the new height based on the A4 width and aspect ratio
-    const pdfHeightNew = pdfWidth / aspectRatio;
-
-    // Add the canvas image to the PDF
-    pdf.addImage(
-      canvas.toDataURL("image/png"),
-      "PNG",
-      0,
-      0,
-      pdfWidth,
-      pdfHeightNew
-    );
-
-    // Save the PDF with a given name
-    pdf.save("vet_bill.pdf");
-  });
-}
+import Header from "../components/Header";
+import FreeFormBox from "../components/FreeFormBox";
+import BankDetails from "../components/BankDetails";
 
 function Main() {
   const lightTheme = createTheme(theme);
+
+  useEffect(() => {
+    // Call your generatePDF function here after the page has loaded
+  }, []);
+
+  const generatePDF = async () => {
+    try {
+      const pages = document.querySelectorAll(".pdf-page");
+      const pdf = new jsPDF("p", "mm", "a4", true);
+
+      for (let index = 0; index < pages.length; index++) {
+        const page = pages[index];
+
+        const canvas = await html2canvas(page, { scale: 5 });
+        const imgData = canvas.toDataURL("image/png");
+
+        if (index > 0) {
+          pdf.addPage();
+        }
+
+        pdf.addImage(imgData, "PNG", 0, 0, 208, 295);
+      }
+
+      pdf.save("bill.pdf");
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+    }
+  };
+
   return (
     <ThemeProvider theme={lightTheme}>
-      <Typography
-        sx={{
-          fontSize: "2rem",
-          textAlign: "center",
-        }}
-      >
-        Vet Bill Maker
-      </Typography>
-      <Box id="bill-container" sx={{ width: "100vw" }}>
+      <Box>
         <Box
+          className="pdf-page"
           sx={{
-            border: "solid 1px black",
-            width: "100vw",
+            width: "595px",
+            height: "842px",
+            margin: "0 auto",
+            backgroundColor: "lightblue",
+            padding: 2,
           }}
         >
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Box>
-              <Input placeholder="Enter Address" />
-            </Box>
-            <Box>
-              <Typography>INVOICE</Typography>
-            </Box>
-          </Box>
-          <Box>
-            <Input placeholder="Enter Name" />
-          </Box>
-          <Box>
-            <Input placeholder="Enter Details" />
-          </Box>
-          <Box>
-            <Input placeholder="Enter Details" />
-          </Box>
-          <Box>
-            <Input placeholder="Enter Details" />
-          </Box>
-          <Box>
-            <Input placeholder="Enter Details" />
-          </Box>
-        </Box>
-        <Box>
-          <TableComponent />
+          <Header />
+          <FreeFormBox />
+          <BankDetails />
         </Box>
       </Box>
-      <Box sx={{ display: "flex", justifyContent: "center", width: "100vw" }}>
-        <Button variant="contained" sx={{ marginTop: 0 }} onClick={generatePDF}>
+
+      <Box
+        className="pdf-page"
+        sx={{
+          width: "595px",
+          height: "842px",
+          margin: "0 auto",
+          backgroundColor: "green",
+          padding: 2,
+        }}
+      >
+        <Typography variant="h6">Page 2</Typography>
+        <TableComponent />
+      </Box>
+
+      <Box sx={{ display: "flex", justifyContent: "center", marginTop: 2 }}>
+        <Button variant="contained" onClick={generatePDF}>
           Make Bill
         </Button>
       </Box>

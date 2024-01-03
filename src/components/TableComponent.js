@@ -30,7 +30,7 @@ const TableComponent = () => {
   };
 
   return (
-    <Box>
+    <Box backgroundColor={"purple"}>
       <TableContainer>
         <Table>
           <TableHead>
