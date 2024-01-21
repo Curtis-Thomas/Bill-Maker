@@ -12,32 +12,32 @@ import {
 function TaxBox() {
   return (
     <Box
-    // backgroundColor={"magenta"}
-    //   sx={{ borderBottom: "solid 1px black" }}
+      // backgroundColor={"magenta"}
+      sx={{ height: "100%", width: "100%" }}
     >
       <TableContainer>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>ALV</TableCell>
-              <TableCell>Veroton</TableCell>
-              <TableCell>Vero</TableCell>
-              <TableCell>Brutto</TableCell>
+              <TableCell sx={{ fontSize: "0.7rem" }}>ALV</TableCell>
+              <TableCell sx={{ fontSize: "0.7rem" }}>Veroton</TableCell>
+              <TableCell sx={{ fontSize: "0.7rem" }}>Vero</TableCell>
+              <TableCell sx={{ fontSize: "0.7rem" }}>Brutto</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             <TableRow>
               <TableCell>
-                <Input placeholder="Enter Text" />
+                <Input sx={{ fontSize: "0.7rem" }} placeholder="Enter Text" />
               </TableCell>
               <TableCell>
-                <Input placeholder="Enter Text" />
+                <Input sx={{ fontSize: "0.7rem" }} placeholder="Enter Text" />
               </TableCell>
               <TableCell>
-                <Input placeholder="Enter Text" />
+                <Input sx={{ fontSize: "0.7rem" }} placeholder="Enter Text" />
               </TableCell>
               <TableCell>
-                <Input placeholder="Enter Text" />
+                <Input sx={{ fontSize: "0.7rem" }} placeholder="Enter Text" />
               </TableCell>
             </TableRow>
           </TableBody>

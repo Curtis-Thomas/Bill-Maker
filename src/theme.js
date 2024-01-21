@@ -17,6 +17,16 @@ const theme = createTheme({
           },
           "&$disabled": {},
         },
+        input: {
+          overflow: "visible",
+        },
+      },
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          whiteSpace: "nowrap",
+        },
       },
     },
   },

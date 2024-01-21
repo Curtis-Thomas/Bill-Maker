@@ -4,7 +4,7 @@ function BankDetails() {
   return (
     <Box
       // backgroundColor={"orange"}
-      sx={{ width: "100%", borderBottom: "solid 1px black" }}
+      sx={{ width: "100%", height: "100%", borderBottom: "solid 1px black" }}
     >
       <Box sx={{ display: "flex" }}>
         <Box
@@ -14,8 +14,8 @@ function BankDetails() {
             width: "33.33%",
           }}
         >
-          <Typography>Saajan</Typography>
-          <Input placeholder="Saajan" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Saajan</Typography>
+          <Input sx={{ fontSize: "0.7rem" }} placeholder="Saajan" />
         </Box>
         <Box
           sx={{
@@ -24,8 +24,8 @@ function BankDetails() {
             width: "33.33%",
           }}
         >
-          <Typography>Iban</Typography>
-          <Input placeholder="Iban" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Iban</Typography>
+          <Input sx={{ fontSize: "0.7rem" }} placeholder="Iban" />
         </Box>
         <Box
           sx={{
@@ -35,15 +35,18 @@ function BankDetails() {
             width: "33.33%",
           }}
         >
-          <Typography>Bic</Typography>
-          <Input placeholder="Bic" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Bic</Typography>
+          <Input sx={{ fontSize: "0.7rem" }} placeholder="Bic" />
         </Box>
       </Box>
 
       <Box sx={{ display: "flex", border: "solid 1px black" }}>
         <Box sx={{ border: "solid 0px black", width: "100%" }}>
-          <Typography>Saaja</Typography>
-          <Input sx={{ width: "100%" }} placeholder="Saaja" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Saaja</Typography>
+          <Input
+            sx={{ fontSize: "0.7rem", width: "100%" }}
+            placeholder="Saaja"
+          />
         </Box>
       </Box>
 
@@ -55,30 +58,30 @@ function BankDetails() {
         }}
       >
         <Box sx={{ border: "solid 0px black", width: "100%" }}>
-          <Typography>Maksajan</Typography>
-          <Input placeholder="Maksajan" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Maksajan</Typography>
+          <Input sx={{ fontSize: "0.7rem" }} placeholder="Maksajan" />
         </Box>
       </Box>
 
       <Box sx={{ display: "flex", border: "solid 1px black" }}>
         <Box sx={{ borderRight: "solid 1px black", width: "50%" }}>
-          <Typography>Allekirjoitus</Typography>
-          <Input placeholder="Allekirjoitus" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Allekirjoitus</Typography>
+          <Input sx={{ fontSize: "0.7rem" }} placeholder="Allekirjoitus" />
         </Box>
         <Box sx={{ border: "solid 0px black", width: "50%" }}>
-          <Typography>Viitenro</Typography>
-          <Input placeholder="Viitenro" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Viitenro</Typography>
+          <Input sx={{ fontSize: "0.7rem" }} placeholder="Viitenro" />
         </Box>
       </Box>
 
       <Box sx={{ display: "flex", border: "solid 0px black" }}>
         <Box sx={{ borderLeft: "solid 1px black", width: "33.33%" }}>
-          <Typography>Tililtä nro</Typography>
-          <Input placeholder="Tililtä nro" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Tililtä nro</Typography>
+          <Input sx={{ fontSize: "0.7rem" }} placeholder="Tililtä nro" />
         </Box>
         <Box sx={{ borderLeft: "solid 1px black", width: "33.33%" }}>
-          <Typography>Eräpäivä</Typography>
-          <Input placeholder="Eräpäivä" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Eräpäivä</Typography>
+          <Input sx={{ fontSize: "0.7rem" }} placeholder="Eräpäivä" />
         </Box>
         <Box
           sx={{
@@ -87,8 +90,8 @@ function BankDetails() {
             width: "33.33%",
           }}
         >
-          <Typography>Euro</Typography>
-          <Input placeholder="Euro" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Euro</Typography>
+          <Input sx={{ fontSize: "0.7rem" }} placeholder="Euro" />
         </Box>
       </Box>
     </Box>

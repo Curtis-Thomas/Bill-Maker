@@ -32,16 +32,16 @@ const TableComponent = () => {
   return (
     <Box
       // backgroundColor={"purple"}
-      sx={{ width: "100%" }}
+      sx={{ width: "100%", height: "100%" }}
     >
       <TableContainer>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Drug Name</TableCell>
-              <TableCell>Quantity</TableCell>
-              <TableCell>Price Unit</TableCell>
-              <TableCell>Warning Period</TableCell>
+              <TableCell sx={{ fontSize: "0.7rem" }}>Drug Name</TableCell>
+              <TableCell sx={{ fontSize: "0.7rem" }}>Quantity</TableCell>
+              <TableCell sx={{ fontSize: "0.7rem" }}>Price Unit</TableCell>
+              <TableCell sx={{ fontSize: "0.7rem" }}>Warning Period</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
