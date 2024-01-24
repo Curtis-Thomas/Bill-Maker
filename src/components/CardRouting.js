@@ -12,11 +12,12 @@ const CardRouting = ({ cardName, navigateTo }) => {
     <ButtonBase
       onClick={handleClick}
       sx={{
-        width: "100%",
+        width: "33%",
         height: "100%",
         textAlign: "left",
         padding: 1,
         borderRadius: 1,
+
         "&:hover": {
           backgroundColor: "rgba(0, 0, 0, 0.04)",
         },
@@ -31,6 +32,8 @@ const CardRouting = ({ cardName, navigateTo }) => {
           justifyContent: "center",
           width: "100%",
           height: "100%",
+          backgroundColor: "#FD5C1A",
+          color: "white",
         }}
       >
         <Typography

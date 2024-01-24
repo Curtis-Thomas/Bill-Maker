@@ -63,6 +63,7 @@ function Elainlaakari() {
           flexDirection: "column",
           justifyContent: "space-between",
           alignItems: "center", // Center content vertically
+          backgroundColor: "white",
         }}
       >
         <Header />
@@ -85,6 +86,7 @@ function Elainlaakari() {
           flexDirection: "column",
           // justifyContent: "",
           alignItems: "center", // Center content vertically
+          backgroundColor: "white",
         }}
       >
         <Typography variant="h6">Page 2</Typography>
@@ -92,7 +94,11 @@ function Elainlaakari() {
       </Box>
 
       <Box sx={{ display: "flex", justifyContent: "center", padding: 10 }}>
-        <Button variant="contained" onClick={generatePDF}>
+        <Button
+          variant="contained"
+          onClick={generatePDF}
+          sx={{ backgroundColor: "#FD5C1A" }}
+        >
           Make Bill
         </Button>
       </Box>
