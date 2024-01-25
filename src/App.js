@@ -1,18 +1,17 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Main from "./core/Main";
-import EnglishDash from "./language/english/EnglishDash";
-import SuomiDash from "./language/finnish/SuomiDash";
-import Elainlaakari from "./language/finnish/ammatti/Elainlaakari";
+
 import Header from "./core/Header";
 import { Box } from "@mui/material";
+import VeterinaryBill from "./category/veterinary/veterinaryBill/VeterinaryBill";
+import VeterinaryDash from "./category/veterinary/VeterinaryDash";
 
 const routeConfig = [
   { path: "/", component: Main },
 
-  { path: "/SuomiDash", component: SuomiDash },
-  { path: "/EnglishDash", component: EnglishDash },
+  { path: "/VeterinaryDash", component: VeterinaryDash },
 
-  { path: "/Elainlaakari", component: Elainlaakari },
+  { path: "/VeterinaryBill", component: VeterinaryBill },
 ];
 
 function App() {

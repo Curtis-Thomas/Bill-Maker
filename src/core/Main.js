@@ -8,9 +8,8 @@ function Main() {
       <Box sx={{}}>
         <Hero />
 
-        <Box>
-          <CardRouting cardName="Suomi" navigateTo="/SuomiDash" />
-          {/* <CardRouting cardName="English" navigateTo="/EnglishDash" /> */}
+        <Box sx={{}}>
+          <CardRouting cardName="Veterinary" navigateTo="/VeterinaryDash" />
         </Box>
       </Box>
     </Box>

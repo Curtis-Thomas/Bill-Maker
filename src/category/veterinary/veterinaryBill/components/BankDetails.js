@@ -1,6 +1,17 @@
-import { Box, Input, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
-function BankDetails() {
+function BankDetails({
+  bankRecipient,
+  bankIban,
+  bankBic,
+  bankRecipient2,
+  bankPayer,
+  bankSignature,
+  bankReferenceNo,
+  bankFromAccountNo,
+  bankDueDate,
+  bankEuro,
+}) {
   return (
     <Box
       // backgroundColor={"orange"}
@@ -14,8 +25,8 @@ function BankDetails() {
             width: "33.33%",
           }}
         >
-          <Typography sx={{ fontSize: "0.7rem" }}>Saajan</Typography>
-          <Input sx={{ fontSize: "0.7rem" }} placeholder="Saajan" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Recipient</Typography>
+          <Typography>{bankRecipient}</Typography>
         </Box>
         <Box
           sx={{
@@ -25,7 +36,7 @@ function BankDetails() {
           }}
         >
           <Typography sx={{ fontSize: "0.7rem" }}>Iban</Typography>
-          <Input sx={{ fontSize: "0.7rem" }} placeholder="Iban" />
+          <Typography>{bankIban}</Typography>
         </Box>
         <Box
           sx={{
@@ -36,17 +47,14 @@ function BankDetails() {
           }}
         >
           <Typography sx={{ fontSize: "0.7rem" }}>Bic</Typography>
-          <Input sx={{ fontSize: "0.7rem" }} placeholder="Bic" />
+          <Typography>{bankBic}</Typography>
         </Box>
       </Box>
 
       <Box sx={{ display: "flex", border: "solid 1px black" }}>
         <Box sx={{ border: "solid 0px black", width: "100%" }}>
-          <Typography sx={{ fontSize: "0.7rem" }}>Saaja</Typography>
-          <Input
-            sx={{ fontSize: "0.7rem", width: "100%" }}
-            placeholder="Saaja"
-          />
+          <Typography sx={{ fontSize: "0.7rem" }}>Recipient</Typography>
+          <Typography>{bankRecipient2}</Typography>
         </Box>
       </Box>
 
@@ -58,30 +66,32 @@ function BankDetails() {
         }}
       >
         <Box sx={{ border: "solid 0px black", width: "100%" }}>
-          <Typography sx={{ fontSize: "0.7rem" }}>Maksajan</Typography>
-          <Input sx={{ fontSize: "0.7rem" }} placeholder="Maksajan" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Payer</Typography>
+          <Typography>{bankPayer}</Typography>
         </Box>
       </Box>
 
       <Box sx={{ display: "flex", border: "solid 1px black" }}>
         <Box sx={{ borderRight: "solid 1px black", width: "50%" }}>
-          <Typography sx={{ fontSize: "0.7rem" }}>Allekirjoitus</Typography>
-          <Input sx={{ fontSize: "0.7rem" }} placeholder="Allekirjoitus" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Signature</Typography>
+          <Typography>{bankSignature}</Typography>
         </Box>
         <Box sx={{ border: "solid 0px black", width: "50%" }}>
-          <Typography sx={{ fontSize: "0.7rem" }}>Viitenro</Typography>
-          <Input sx={{ fontSize: "0.7rem" }} placeholder="Viitenro" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Reference no</Typography>
+          <Typography>{bankReferenceNo}</Typography>
         </Box>
       </Box>
 
       <Box sx={{ display: "flex", border: "solid 0px black" }}>
         <Box sx={{ borderLeft: "solid 1px black", width: "33.33%" }}>
-          <Typography sx={{ fontSize: "0.7rem" }}>Tililtä nro</Typography>
-          <Input sx={{ fontSize: "0.7rem" }} placeholder="Tililtä nro" />
+          <Typography sx={{ fontSize: "0.7rem" }}>
+            From account number
+          </Typography>
+          <Typography>{bankFromAccountNo}</Typography>
         </Box>
         <Box sx={{ borderLeft: "solid 1px black", width: "33.33%" }}>
-          <Typography sx={{ fontSize: "0.7rem" }}>Eräpäivä</Typography>
-          <Input sx={{ fontSize: "0.7rem" }} placeholder="Eräpäivä" />
+          <Typography sx={{ fontSize: "0.7rem" }}>Due date</Typography>
+          <Typography>{bankDueDate}</Typography>
         </Box>
         <Box
           sx={{
@@ -91,7 +101,7 @@ function BankDetails() {
           }}
         >
           <Typography sx={{ fontSize: "0.7rem" }}>Euro</Typography>
-          <Input sx={{ fontSize: "0.7rem" }} placeholder="Euro" />
+          <Typography>{bankEuro}</Typography>
         </Box>
       </Box>
     </Box>

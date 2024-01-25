@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Input,
@@ -11,43 +11,18 @@ import {
   Typography,
 } from "@mui/material";
 
-function ItemBill() {
+function ItemBill({ billDrugs, billSupplies, billProcedures }) {
   const drugsTax = 10;
   const suppliesTax = 14;
   const proceduresTax = 24;
 
-  const [drugsPriceWithTax, setDrugsPriceWithTax] = useState(0);
-  const [suppliesPriceWithTax, setSuppliesPriceWithTax] = useState(0);
-  const [proceduresPriceWithTax, setProceduresPriceWithTax] = useState(0);
+  const noVatBillDrugs = billDrugs / (1 + drugsTax / 100);
+  const noVatBillSupplies = billSupplies / (1 + suppliesTax / 100);
+  const noVatBillProcedures = billProcedures / (1 + proceduresTax / 100);
 
-  const calculatePriceWithoutTax = (priceWithTax, taxPercentage) => {
-    return priceWithTax / (1 + taxPercentage / 100);
-  };
-
-  const calculateTaxAmount = (priceWithTax, taxPercentage) => {
-    return priceWithTax - calculatePriceWithoutTax(priceWithTax, taxPercentage);
-  };
-
-  const handleDrugsPriceWithTaxChange = (e) => {
-    const newPriceWithTax = parseFloat(e.target.value);
-    if (!isNaN(newPriceWithTax)) {
-      setDrugsPriceWithTax(newPriceWithTax);
-    }
-  };
-
-  const handleSuppliesPriceWithTaxChange = (e) => {
-    const newPriceWithTax = parseFloat(e.target.value);
-    if (!isNaN(newPriceWithTax)) {
-      setSuppliesPriceWithTax(newPriceWithTax);
-    }
-  };
-
-  const handleProceduresPriceWithTaxChange = (e) => {
-    const newPriceWithTax = parseFloat(e.target.value);
-    if (!isNaN(newPriceWithTax)) {
-      setProceduresPriceWithTax(newPriceWithTax);
-    }
-  };
+  const vatShareDrugs = billDrugs - noVatBillDrugs;
+  const vatShareSupplies = billSupplies - noVatBillSupplies;
+  const vatShareProcedures = billProcedures - noVatBillProcedures;
 
   return (
     <Box
@@ -58,19 +33,19 @@ function ItemBill() {
           <TableHead>
             <TableRow>
               <TableCell sx={{ fontSize: "0.7rem", whiteSpace: "nowrap" }}>
-                Selite
+                Name
               </TableCell>
               <TableCell sx={{ fontSize: "0.7rem", whiteSpace: "nowrap" }}>
-                Alv %
+                VAT %
               </TableCell>
               <TableCell sx={{ fontSize: "0.7rem", whiteSpace: "nowrap" }}>
-                Ei Alv
+                No VAT
               </TableCell>
               <TableCell sx={{ fontSize: "0.7rem", whiteSpace: "nowrap" }}>
-                Sis. Alv
+                Inc VAT
               </TableCell>
               <TableCell sx={{ fontSize: "0.7rem", whiteSpace: "nowrap" }}>
-                Alv-osuus
+                VAT-Share
               </TableCell>
             </TableRow>
           </TableHead>
@@ -86,28 +61,17 @@ function ItemBill() {
                 <Input
                   sx={{ fontSize: "0.7rem" }}
                   placeholder="input price without tax"
-                  value={calculatePriceWithoutTax(
-                    drugsPriceWithTax,
-                    drugsTax
-                  ).toFixed(2)}
-                  readOnly
+                  value={noVatBillDrugs.toFixed(2)}
                 />
               </TableCell>
               <TableCell>
-                <Input
-                  sx={{ fontSize: "0.7rem" }}
-                  placeholder="input price with tax"
-                  onChange={handleDrugsPriceWithTaxChange}
-                />
+                <Input sx={{ fontSize: "0.7rem" }} value={billDrugs} />
               </TableCell>
               <TableCell>
                 <Input
                   sx={{ fontSize: "0.7rem" }}
                   placeholder="calculate the tax price of total price"
-                  value={calculateTaxAmount(
-                    drugsPriceWithTax,
-                    drugsTax
-                  ).toFixed(2)}
+                  value={vatShareDrugs.toFixed(2)}
                   readOnly
                 />
               </TableCell>
@@ -123,29 +87,17 @@ function ItemBill() {
                 <Input
                   sx={{ fontSize: "0.7rem" }}
                   placeholder="input price without tax"
-                  value={calculatePriceWithoutTax(
-                    suppliesPriceWithTax,
-                    suppliesTax
-                  ).toFixed(2)}
-                  readOnly
+                  value={noVatBillSupplies.toFixed(2)}
                 />
               </TableCell>
               <TableCell>
-                <Input
-                  sx={{ fontSize: "0.7rem" }}
-                  placeholder="input price with tax"
-                  onChange={handleSuppliesPriceWithTaxChange}
-                />
+                <Input sx={{ fontSize: "0.7rem" }} value={billSupplies} />
               </TableCell>
               <TableCell>
                 <Input
                   sx={{ fontSize: "0.7rem" }}
                   placeholder="calculate the tax price of total price"
-                  value={calculateTaxAmount(
-                    suppliesPriceWithTax,
-                    suppliesTax
-                  ).toFixed(2)}
-                  readOnly
+                  value={vatShareSupplies.toFixed(2)}
                 />
               </TableCell>
             </TableRow>
@@ -160,29 +112,17 @@ function ItemBill() {
                 <Input
                   sx={{ fontSize: "0.7rem" }}
                   placeholder="input price without tax"
-                  value={calculatePriceWithoutTax(
-                    proceduresPriceWithTax,
-                    proceduresTax
-                  ).toFixed(2)}
-                  readOnly
+                  value={noVatBillProcedures.toFixed(2)}
                 />
               </TableCell>
               <TableCell>
-                <Input
-                  sx={{ fontSize: "0.7rem" }}
-                  placeholder="input price with tax"
-                  onChange={handleProceduresPriceWithTaxChange}
-                />
+                <Input sx={{ fontSize: "0.7rem" }} value={billProcedures} />
               </TableCell>
               <TableCell>
                 <Input
                   sx={{ fontSize: "0.7rem" }}
                   placeholder="calculate the tax price of total price"
-                  value={calculateTaxAmount(
-                    proceduresPriceWithTax,
-                    proceduresTax
-                  ).toFixed(2)}
-                  readOnly
+                  value={vatShareProcedures.toFixed(2)}
                 />
               </TableCell>
             </TableRow>

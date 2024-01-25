@@ -12,7 +12,7 @@ const CardRouting = ({ cardName, navigateTo }) => {
     <ButtonBase
       onClick={handleClick}
       sx={{
-        width: "33%",
+        width: "100%",
         height: "100%",
         textAlign: "left",
         padding: 1,
@@ -39,7 +39,7 @@ const CardRouting = ({ cardName, navigateTo }) => {
         <Typography
           variant="h5"
           gutterBottom
-          sx={{ fontWeight: "bold", height: "17.5%" }}
+          sx={{ fontWeight: "bold", height: "17.5%", textAlign: "center" }}
         >
           {cardName}
         </Typography>

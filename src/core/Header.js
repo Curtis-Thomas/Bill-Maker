@@ -16,7 +16,7 @@ function Header() {
       <ButtonBase
         onClick={handleClick}
         sx={{
-          width: "33%",
+          width: "50%",
           height: "100%",
           textAlign: "left",
           padding: 1,
@@ -43,7 +43,7 @@ function Header() {
           <Typography
             variant="h5"
             gutterBottom
-            sx={{ fontWeight: "bold", height: "17.5%" }}
+            sx={{ fontWeight: "bold", height: "17.5%", textAlign: "center" }}
           >
             Home
           </Typography>
